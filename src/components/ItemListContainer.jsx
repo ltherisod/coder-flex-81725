@@ -2,7 +2,7 @@ const ItemListContainer = ({mensaje})=> {
     // const {mensaje}=props   
      return(
         <div>
-            <h1>{mensaje}</h1>
+            <h1 className='text-success'>{mensaje}</h1>
         </div>
     )
 }
