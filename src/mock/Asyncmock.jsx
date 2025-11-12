@@ -2,7 +2,7 @@ const products = [
     {
        id:'01',
        name:'Random 1',
-       descrition: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam rerum at, assumenda enim quae nulla.',
+       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam rerum at, assumenda enim quae nulla.',
        stock:20,
        price:25000,
        category:'nuevos',
@@ -11,7 +11,7 @@ const products = [
     {
        id:'02',
        name:'Random 2',
-       descrition: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam rerum at, assumenda enim quae nulla.',
+       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam rerum at, assumenda enim quae nulla.',
        stock:15,
        price:55000,
        category:'mas vendidos',
@@ -20,7 +20,7 @@ const products = [
      {
        id:'03',
        name:'Random 3',
-       descrition: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam rerum at, assumenda enim quae nulla.',
+       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam rerum at, assumenda enim quae nulla.',
        stock:12,
        price:75000,
        category:'mas vendidos',
@@ -29,7 +29,7 @@ const products = [
     {
        id:'04',
        name:'Random 4',
-       descrition: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam rerum at, assumenda enim quae nulla.',
+       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam rerum at, assumenda enim quae nulla.',
        stock:8,
        price:45000,
        category:'ofertas',
