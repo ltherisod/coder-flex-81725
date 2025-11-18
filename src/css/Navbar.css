@@ -11,6 +11,12 @@
     text-decoration: none;
     cursor: pointer;
 }
+.active{
+    color:violet;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 .logo {
     width: 8rem;

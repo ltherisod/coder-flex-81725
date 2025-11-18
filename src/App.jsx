@@ -2,27 +2,23 @@ import NavBarBS from './components/NavBarBS';
 import ItemListContainer from './components/ItemListContainer'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ItemCount from './components/ItemCount';
-import FetchCountry from './examples/FetchCountry';
-import FetchApi from './examples/FetchApi';
-import withLogging from './hoc/withLogging';
 import ItemDetailContainer from './components/ItemDetailContainer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Error from './components/Error';
+
 
 function App() {
- const ItemListContainerConHoc = withLogging(ItemListContainer)
- const FetchConHoc= withLogging(FetchCountry)
-console.log('soy app')
+ 
   return (
-    <>
+    <BrowserRouter>
       <NavBarBS/>
-      {/* <FetchApi/> */}
-      {/* <FetchCountry/> */}
-      {/* <FetchConHoc/> */}
-      {/* <ItemListContainerConHoc mensaje={'Bienvenidos a mi App'}/> */}
-      {/* <ItemCount stock={12}/> */}
-      {/* <ItemListContainer mensaje={'Bienvenidos a mi App'}/> */}
-      <ItemDetailContainer/>
-    </>
+      <Routes>
+        <Route path='/' element={ <ItemListContainer mensaje={'Bienvenidos a mi App'}/>}/>
+        <Route path='/category/:type' element={ <ItemListContainer mensaje={'Estas en la categoría: '}/>}/>
+        <Route path='/item/:id' element={<ItemDetailContainer/>}/>
+        <Route path='*' element={<Error/>}/>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

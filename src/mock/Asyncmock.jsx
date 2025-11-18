@@ -53,6 +53,7 @@ export const getProducts = ()=>{
 
 
 export const  getOneProduct = (id)=>{
+    console.log({id:id})
     return new Promise ((resolve)=>{
         setTimeout(()=>{
             //harcodeado
