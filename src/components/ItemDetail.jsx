@@ -2,6 +2,9 @@ import React from 'react'
 import ItemCount from './ItemCount'
 
 const ItemDetail = ({detalle}) => {
+  const onAdd=(cantidad)=>{
+    console.log(`Agregaste ${cantidad} unidades del producto ${detalle.name}`)
+  }
   return (
     <div>
         <h2>Detalle del producto: {detalle.name}</h2>
@@ -10,7 +13,7 @@ const ItemDetail = ({detalle}) => {
         <p>{detalle.description}</p>
         <p>Stock disponible: {detalle.stock} unidades</p>
         {/* el contador opcional para la segunda pre entrega */}
-        <ItemCount stock={detalle.stock}/> 
+        <ItemCount stock={detalle.stock} onAdd={onAdd}/> 
     </div>
   )
 }
