@@ -1,0 +1,92 @@
+import { createContext, useState } from "react";
+
+export const CartContext = createContext()
+
+export const CartProvider = ({children})=> {
+    const [cart, setCart]= useState([])
+
+    console.log(cart, 'carrito')
+    //agregar un item al carrito, contempla duplicados
+    const addItem = (item,qty)=>{
+        if(isInCart(item.id)){
+            //forma larga
+            //existe, sumo cantidades
+            // const carritoActualizado = cart.map((prod)=>{
+            //     if(prod.id === item.id){
+            //         //encuentra al repetido dentro del array
+            //         //suimar cantidades
+            //         return {...prod, quantity: prod.quantity + qty}
+            //     }else{
+            //         //retorno sin modificar
+            //         return prod
+            //     }
+            // })
+            // setCart(carritoActualizado)
+
+            //corta
+            setCart(
+                cart.map((prod)=>{
+                if(prod.id === item.id){
+                    //encuentra al repetido dentro del array
+                    //suimar cantidades
+                    return {...prod, quantity: prod.quantity + qty}
+                }else{
+                    //retorno sin modificar
+                    return prod
+                }
+            })
+            )
+
+        }else{
+            //no existe, lo agrego tal cual
+            setCart([...cart, {...item, quantity:qty}])
+        }
+        // console.log({...item, quantity:qty})
+    }
+    //borre todo el carrito
+    const clear = ()=>{
+        setCart([])
+    }
+
+    //borrar un item del carrito
+    const removeItem = (id)=>{
+        setCart(cart.filter((prod)=> prod.id !== id))
+    }
+
+    //devuelve un booleano si esta o no en el carrito
+    const isInCart = (id)=> {
+        return cart.some((prod)=> prod.id === id)
+    }
+
+//total a pagar
+    const total = ()=>{
+
+    }
+//total a items En el carrito (sumatoria de cantidades)
+    const cartQuantity = ()=>{
+
+    }
+
+    //OPCIONAL
+    const itemQuantity = (id)=>{
+        const itemInCart = cart.find((prod)=> prod.id === id)
+
+        if(itemInCart){
+            return itemInCart.quantity
+        }else{
+            //no existe
+            return 0
+        }
+
+    }
+
+
+
+    //funciones que modifiquen ese estado (setCart)
+    // const cajitaDeHerramientas = {}
+    return(
+        <CartContext.Provider value={{cart, clear, removeItem, addItem, itemQuantity}}>
+            {children}
+        </CartContext.Provider>
+    )
+}

@@ -2,7 +2,8 @@ import { useEffect, useState } from "react"
 import { getProducts } from "../mock/Asyncmock"
 import ItemList from "./ItemList"
 import { useParams } from "react-router-dom"
-import { Spinner } from "react-bootstrap"
+
+import LoaderComponent from "./LoaderComponent"
 
 const ItemListContainer = ({mensaje})=> {
     const[data, setData] = useState([])
@@ -30,19 +31,29 @@ const ItemListContainer = ({mensaje})=> {
 
 
     //return anticipado
-    if(loading){
-        // return <p>Cargando productos...</p>
-        return <div style={{width:'100%', height:'85vh', display:'flex', justifyContent:'center', alignItems:'center'}}>
-            <Spinner/>
-        </div>
-    }
+    // if(loading){
+    //     // return <p>Cargando productos...</p>
+    //     return <div style={{width:'100%', height:'85vh', display:'flex', justifyContent:'center', alignItems:'center'}}>
+    //         <Spinner/>
+    //         <p>Cargando productos...</p>
+    //     </div>
+    // }
 
      return(
-        <div>
+        
+        <>
+            {
+                loading 
+                ? <LoaderComponent text={type ? `Cargando categoria ${type}...` : 'Cargando Productos...'}/>
+                :<div>
             <h1 className='text-success'>{mensaje} {type && <span style={{textTransform:'capitalize', color:'red'}}>{type}</span>}</h1>
             {/* <Input/> */}
             <ItemList data={data}/>
         </div>
+            }
+        </>
+        
+        
     )
 }
 export default ItemListContainer 
