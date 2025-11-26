@@ -1,10 +1,16 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const CartContext = createContext()
 
+const carritoLS = JSON.parse(localStorage.getItem('carrito')) || []
 export const CartProvider = ({children})=> {
-    const [cart, setCart]= useState([])
+    const [cart, setCart]= useState(carritoLS)
 
+    //seteamos y actualizamos el local storage cada vez que el carrito cambia
+        useEffect(()=>{
+            localStorage.setItem('carrito', JSON.stringify(cart))
+        },[cart])
+        
     console.log(cart, 'carrito')
     //agregar un item al carrito, contempla duplicados
     const addItem = (item,qty)=>{
