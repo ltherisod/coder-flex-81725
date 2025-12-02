@@ -1,13 +1,13 @@
 const products = [
-    {
-       id:'01',
-       name:'Random 1',
-       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam rerum at, assumenda enim quae nulla.',
-       stock:20,
-       price:25000,
-       category:'nuevos',
-       img:'https://picsum.photos/200'
-    },
+    // {
+    // //    id:'01',
+    //    name:'Random 1',
+    //    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam rerum at, assumenda enim quae nulla.',
+    //    stock:20,
+    //    price:25000,
+    //    category:'nuevos',
+    //    img:'https://picsum.photos/200'
+    // },
     {
        id:'02',
        name:'Random 2',

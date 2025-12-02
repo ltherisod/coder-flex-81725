@@ -4,30 +4,61 @@ import ItemList from "./ItemList"
 import { useParams } from "react-router-dom"
 
 import LoaderComponent from "./LoaderComponent"
+import { collection, getDocs, query, where } from "firebase/firestore"
+import { db } from "../service/firebase"
 
 const ItemListContainer = ({mensaje})=> {
     const[data, setData] = useState([])
     const [loading, setLoading]=useState(false)
     const {type}= useParams()
 
+
+
+    //FIREBASE
+
     useEffect(()=>{
         setLoading(true)
-        //pedir datos
-        getProducts()//retorna una promesa
-        .then((res)=> {
-            if(type){
-                //filtrar
-                 setData(res.filter((prod)=> prod.category === type))
-            }else{
-                //devuelvo todo
-                setData(res)
-            }
-        })//tratar la promesa y guardarlo en un estado
-        .catch((error)=> console.log(error))//atrapar el error
-        .finally(()=> setLoading(false))
+        //1.conectar a nuestra coleccion
+        const prodCollection = type ? query(collection(db, "items"), where("category", "==", type)) :collection(db, "items" )
+        //2.pedir documentos
+        getDocs(prodCollection)
+        .then((res)=>{ //tratamos la promesa
+            console.log(res)
+            console.log(res.docs)
+            //limpiar y obtener datos
+            const list = res.docs.map((doc)=>{
 
-        //esta a la escucha del cambio de categoria
+                return{
+                    id:doc.id,
+                    ...doc.data()
+                }
+            })
+            // console.log(list)
+            setData(list)
+        })
+        .catch((error)=>console.log(error))
+        .finally(()=> setLoading(false))
     },[type])
+
+    //PROMISE
+    // useEffect(()=>{
+    //     setLoading(true)
+    //     //pedir datos
+    //     getProducts()//retorna una promesa
+    //     .then((res)=> {
+    //         if(type){
+    //             //filtrar
+    //              setData(res.filter((prod)=> prod.category === type))
+    //         }else{
+    //             //devuelvo todo
+    //             setData(res)
+    //         }
+    //     })//tratar la promesa y guardarlo en un estado
+    //     .catch((error)=> console.log(error))//atrapar el error
+    //     .finally(()=> setLoading(false))
+
+    //     //esta a la escucha del cambio de categoria
+    // },[type])
 
 
     //return anticipado
