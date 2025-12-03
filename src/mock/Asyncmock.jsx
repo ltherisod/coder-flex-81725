@@ -1,15 +1,6 @@
-const products = [
-    // {
-    // //    id:'01',
-    //    name:'Random 1',
-    //    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam rerum at, assumenda enim quae nulla.',
-    //    stock:20,
-    //    price:25000,
-    //    category:'nuevos',
-    //    img:'https://picsum.photos/200'
-    // },
+export const products = [
     {
-       id:'02',
+      
        name:'Random 2',
        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam rerum at, assumenda enim quae nulla.',
        stock:15,
@@ -18,7 +9,7 @@ const products = [
        img:'../img/boba-fett.png'
     },
      {
-       id:'03',
+      
        name:'Random 3',
        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam rerum at, assumenda enim quae nulla.',
        stock:12,
@@ -27,7 +18,6 @@ const products = [
        img:'https://i.postimg.cc/bNtTQhG1/darth-vader.png'
     },
     {
-       id:'04',
        name:'Random 4',
        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam rerum at, assumenda enim quae nulla.',
        stock:8,

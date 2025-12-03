@@ -4,13 +4,13 @@ import { TiShoppingCart } from "react-icons/ti";
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 
-const CartWidgetIcons = ({counter}) => {
-    // const context = useContext(CartContext)
+const CartWidgetIcons = () => {
+    const {cartQuantity, cart} = useContext(CartContext)
     // console.log(context)
     return(
         <div>
             <TiShoppingCart fontSize={'1.8rem'}/>
-            <Badge bg="danger">{counter}</Badge>
+          { cart.length > 0 && <Badge bg="danger">{cartQuantity()}</Badge>}
         </div>
     )
 }

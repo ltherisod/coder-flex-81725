@@ -66,11 +66,15 @@ export const CartProvider = ({children})=> {
 
 //total a pagar
     const total = ()=>{
-
+        return cart.reduce((acc, prod)=> acc += prod.quantity * prod.price,0)
+    }
+    //ejemplo impuestos
+     const totalConImpuestos = ()=>{
+        return cart.reduce((acc, prod)=> acc += prod.quantity * prod.price,1.5)
     }
 //total a items En el carrito (sumatoria de cantidades)
     const cartQuantity = ()=>{
-
+        return cart.reduce((acc , prod)=> acc += prod.quantity, 0)
     }
 
     //OPCIONAL
@@ -91,7 +95,7 @@ export const CartProvider = ({children})=> {
     //funciones que modifiquen ese estado (setCart)
     // const cajitaDeHerramientas = {}
     return(
-        <CartContext.Provider value={{cart, clear, removeItem, addItem, itemQuantity}}>
+        <CartContext.Provider value={{cart, clear, removeItem, addItem, itemQuantity, total, cartQuantity}}>
             {children}
         </CartContext.Provider>
     )
