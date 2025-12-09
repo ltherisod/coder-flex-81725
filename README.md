@@ -1,16 +1,29 @@
-# React + Vite
+# Coder Flex App 🛒
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto fue realizado para enseñar las bases de React.
 
-Currently, two official plugins are available:
+![coderApp](/public/logo-shop.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Instalación 🤟
+    *Requisito técnico, contar con Node v20 o mayor  instalado en la pc.*
 
-## React Compiler
+1. Clone el repositorio.
+2. Hacer el comando `cd coder-flex-81725` para moverse a la carpeta raiz del proyecto.
+3. Instale dependencias con el comando `npm install`
+4. Para lefvantar el proyecto de manera local ejecute el comando `npm run dev`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Version Host 
+
+Si desea ver el proyecto online, puede ingresar al siguiente link: [Coder App ]()
+
+
+### Librerias utilizadas 📖
+
+- [Firebase](): utilizado como base de datos.
+- [React Router Dom](): utilizado para la navegación por rutas.
+- [React Bootstrap](): utilizado para el styling de la app.
+
+
+Desarrolado por Laura 🥳
